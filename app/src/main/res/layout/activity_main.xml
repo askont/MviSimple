@@ -11,10 +11,10 @@
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.yakow.weber.mvisimple.ui.search.SearchFragment"
+        android:name="com.yakow.weber.mvisimple.ui.home.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_home" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.yakow.weber.mvisimple.R
 import com.yakow.weber.mvisimple.model.data.models.LanguageModel
+import com.yakow.weber.mvisimple.model.system.ImageDownloader
 import kotlinx.android.synthetic.main.item_language_holder.view.*
 
 /**
@@ -16,7 +17,7 @@ class LanguageAdapter(listLanguageModel: List<LanguageModel>) :
     RecyclerView.Adapter<LanguageAdapter.SearchViewHolder>() {
     private val mutableList = mutableListOf<LanguageModel>()
     private var clickItem: () -> Unit = {}
-
+    private val downloader = ImageDownloader()
     init {
         mutableList.addAll(listLanguageModel)
     }
@@ -40,7 +41,7 @@ class LanguageAdapter(listLanguageModel: List<LanguageModel>) :
     override fun getItemCount(): Int = mutableList.size
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
-        holder.bind(mutableList[position])
+        holder.bind(mutableList[position], downloader)
     }
 
 
@@ -52,9 +53,10 @@ class LanguageAdapter(listLanguageModel: List<LanguageModel>) :
             }
         }
 
-        fun bind(language: LanguageModel) {
+        fun bind(language: LanguageModel, downloader: ImageDownloader) {
             itemView.nameLanguage.text = language.name
             itemView.descriptionLanguage.text = language.description
+            downloader.loadImage(itemView.iconLanguage, language.icon)
         }
     }
 }
