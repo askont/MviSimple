@@ -12,9 +12,9 @@ class HomeInteractor(private val searchRepository: SearchRepository) {
     fun getListLanguage(isStart: Boolean): Observable<HomeViewState> =
         if (isStart) {
             searchRepository.getLanguageModels()
-                .map { if (it.isEmpty()) HomeViewState.EmtyListResult else HomeViewState.Result(it) }
+                .map { if (it.isEmpty()) HomeViewState.EmptyListResult else HomeViewState.Result(it) }
                 .startWith(HomeViewState.Loading)
-        } else Observable.just(HomeViewState.EmtyListResult)
+        } else Observable.just(HomeViewState.EmptyListResult)
 
 
 }

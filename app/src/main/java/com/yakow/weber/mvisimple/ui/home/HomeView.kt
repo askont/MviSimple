@@ -8,6 +8,7 @@ import io.reactivex.Observable
  * @author YWeber */
 
 interface HomeView : MvpView {
-    fun startLoadingContent(): Observable<Boolean>
+    fun startLoadingFirstContent(): Observable<Boolean>
+    fun newLoadingContent(): Observable<Boolean>
     fun render(viewState: HomeViewState)
 }

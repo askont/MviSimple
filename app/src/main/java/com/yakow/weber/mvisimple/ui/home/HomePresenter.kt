@@ -11,7 +11,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 class HomePresenter(private val interactor: HomeInteractor) :
     MviBasePresenter<HomeView, HomeViewState>() {
     override fun bindIntents() {
-        val intent = intent(HomeView::startLoadingContent)
+        val intent = intent(HomeView::startLoadingFirstContent)
             .switchMap(interactor::getListLanguage)
             .observeOn(AndroidSchedulers.mainThread())
         subscribeViewState(intent, HomeView::render)

@@ -7,7 +7,7 @@ import com.yakow.weber.mvisimple.model.data.models.LanguageModel
  * @author YWeber */
 
 sealed class HomeViewState {
-    object EmtyListResult : HomeViewState()
+    object EmptyListResult : HomeViewState()
     object Loading: HomeViewState()
     data class Result(val listLanguage: List<LanguageModel>): HomeViewState()
 }
